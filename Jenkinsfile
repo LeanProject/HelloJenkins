@@ -1,5 +1,6 @@
 node {
     stage ('Send mail') {
+        sh 'java -verdion'
         echo "Send mail stage started"
         step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: emailextrecipients([[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']])])
         /*try {
