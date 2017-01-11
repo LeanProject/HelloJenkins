@@ -1,17 +1,21 @@
+// blank
 def Culprit   = emailextrecipients([[$class: 'CulpritsRecipientProvider']])
+// tl@leanproject.dk
 def Developer = emailextrecipients([[$class: 'DevelopersRecipientProvider']])
-def Requester = emailextrecipients([[$class: 'RequesterRecipientProvider']])
+// tla@gmail.com
+def to = emailextrecipients([[$class: 'RequesterRecipientProvider']])
 
 node {
-     echo "Culprit" 
-     echo Culprit
-     echo "Developer" 
-     echo Developer
-     echo "Requester" 
-     echo Requester
      stage ('Send mail') {
-        mail (to: "tla@tv2.dk",
+         
+        emailext(body: '${DEFAULT_CONTENT}', 
+                 mimeType: 'text/html',
+                 replyTo: '$DEFAULT_REPLYTO', 
+                 subject: '${DEFAULT_SUBJECT}',
+                 to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
+                                         [$class: 'RequesterRecipientProvider']])) 
+        /*mail (to: to,
          subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input",
-         body: "Please go to ${env.BUILD_URL}.");
+         body: "Please go to ${env.BUILD_URL}.");*/
       } //stage   
 } //node
