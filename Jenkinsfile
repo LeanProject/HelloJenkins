@@ -5,10 +5,6 @@ stage ('Send mail') {
 } //stage   
 echo currentBuild.result    
 echo currentBuild.displayName
-echo currentBuild.description
-echo currentBuild.duration
-echo currentBuild.previousBuild
-    
     
 // Email on any failures, and on first success.
         try {
