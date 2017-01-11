@@ -1,8 +1,14 @@
 node {
 stage ('Send mail') { 
     echo "send mail"
-    currentBuild.result = "SUCCESS"
+    //currentBuild.result = "SUCCESS"
 } //stage   
+echo currentBuild.result    
+echo currentBuild.displayName
+echo currentBuild.description
+echo currentBuild.duration
+echo currentBuild.previousBuild
+    
     
 // Email on any failures, and on first success.
         try {
@@ -13,10 +19,10 @@ stage ('Send mail') {
          if (currentBuild.result != 'SUCCESS' || currentBuild.getPreviousBuild().result != currentBuild.result) {
             emailext(body: '${DEFAULT_CONTENT}', 
                      attachLog: true,
+                     compressLog: true,
                      mimeType: 'text/html',
                      replyTo: '$DEFAULT_REPLYTO', 
                      subject: '${DEFAULT_SUBJECT}',
-                     from: "jenkins@tv2.dk",
                      to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
                                              [$class: 'RequesterRecipientProvider']])) 
         }
