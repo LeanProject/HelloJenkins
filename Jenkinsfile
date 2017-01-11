@@ -7,7 +7,7 @@ def to = emailextrecipients([[$class: 'RequesterRecipientProvider']])
 
 node {
      stage ('Send mail') {
-        java -verdion 
+        sh 'java -verdion' 
         if (to != null && !to.isEmpty()) {
         // Email on any failures, and on first success.
             if (currentResult != 'SUCCESS' || currentResult != previousResult) { 
