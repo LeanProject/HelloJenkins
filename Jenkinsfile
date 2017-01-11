@@ -1,5 +1,6 @@
 node {
     stage ('Send mail') {    
+        String currentResult = currentBuild.result
         // Email on any failures, and on first success.
             echo currentResult
             if (currentResult = 'SUCCESS' { 
