@@ -3,6 +3,7 @@ def to = emailextrecipients([[$class: 'CulpritsRecipientProvider'],
                              [$class: 'RequesterRecipientProvider']])
 
 node {
+     echo to
      input 'Ready to send mail?';
      stage ('Send mail') {
         mail (to: to,
