@@ -6,6 +6,7 @@ def Developer = emailextrecipients([[$class: 'DevelopersRecipientProvider']])
 def to = emailextrecipients([[$class: 'RequesterRecipientProvider']])
 
 node {
+    stage ('Send mail'){    
         if (to != null && !to.isEmpty()) {
         // Email on any failures, and on first success.
             if (currentResult != 'SUCCESS' || currentResult != previousResult) { 
