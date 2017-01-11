@@ -1,15 +1,16 @@
 node {
 stage ('Send mail') { 
     echo "send mail"
+    currentBuild.result = "SUCCESS"
 } //stage   
     
 // Email on any failures, and on first success.
         try {
-            currentBuild.result = "FAILURE"
-            error "Fejl" 
+            //currentBuild.result = "FAILURE"
+            //error "Fejl" 
         } finally { 
          echo currentBuild.result    
-         if (currentBuild.result != 'SUCCESS' || currentBuild.getPreviousBuild().result != previousResult) {
+         if (currentBuild.result != 'SUCCESS' || currentBuild.getPreviousBuild().result != currentBuild.result) {
             emailext(body: '${DEFAULT_CONTENT}', 
                      attachLog: true,
                      mimeType: 'text/html',
