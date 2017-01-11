@@ -8,7 +8,7 @@ stage ('Send mail') {
           error "Fejl"  
         } finally { 
          echo currentBuild.result    
-         if (currentBuild.result != 'SUCCESS' || currentBuild.getPreviousBuild().result     != previousResult) {
+         //if (currentBuild.result != 'SUCCESS' || currentBuild.getPreviousBuild().result != previousResult) {
             emailext(body: '${DEFAULT_CONTENT}', 
                      attachLog: true,
                      mimeType: 'text/html',
@@ -17,6 +17,6 @@ stage ('Send mail') {
                      from: "jenkins@tv2.dk",
                      to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
                                              [$class: 'RequesterRecipientProvider']])) 
-        }
+        //}
         }
 }
