@@ -4,7 +4,7 @@ node {
         // Email on any failures, and on first success.
             if (currentResult != 'SUCCESS' || currentResult != previousResult) { 
             emailext(body: '${DEFAULT_CONTENT}', 
-                     attachLog: true,
+                     //attachLog: true,
                      mimeType: 'text/html',
                      replyTo: '$DEFAULT_REPLYTO', 
                      subject: '${DEFAULT_SUBJECT}',
