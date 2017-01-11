@@ -17,3 +17,4 @@ stage ('Send mail') {
                      to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
                                              [$class: 'RequesterRecipientProvider']])) 
         }
+        }
