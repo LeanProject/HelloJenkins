@@ -1,6 +1,6 @@
-def Culprit   = emailextrecipients([$class: 'CulpritsRecipientProvider'])
-def Developer = emailextrecipients([$class: 'DevelopersRecipientProvider'])
-def Requester = emailextrecipients([$class: 'RequesterRecipientProvider'])
+def Culprit   = emailextrecipients([[$class: 'CulpritsRecipientProvider']])
+def Developer = emailextrecipients([[$class: 'DevelopersRecipientProvider']])
+def Requester = emailextrecipients([[$class: 'RequesterRecipientProvider']])
 
 node {
      echo Culprit
