@@ -3,9 +3,12 @@ def Developer = emailextrecipients([[$class: 'DevelopersRecipientProvider']])
 def Requester = emailextrecipients([[$class: 'RequesterRecipientProvider']])
 
 node {
-     echo "Culprit" echo Culprit
-     echo "Developer" echo Developer
-     echo "Requester" echo Requester
+     echo "Culprit" 
+     echo Culprit
+     echo "Developer" 
+     echo Developer
+     echo "Requester" 
+     echo Requester
      stage ('Send mail') {
         mail (to: "tla@sd.dk",
          subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input",
