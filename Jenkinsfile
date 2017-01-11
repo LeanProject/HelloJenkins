@@ -1,3 +1,4 @@
+node {
 stage ('Send mail') { 
     echo "send mail"
 } //stage   
@@ -18,3 +19,4 @@ stage ('Send mail') {
                                              [$class: 'RequesterRecipientProvider']])) 
         }
         }
+}
