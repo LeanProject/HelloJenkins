@@ -1,7 +1,7 @@
 node {
 stage ('Send mail') { 
     echo "send mail"
-    //currentBuild.result = "SUCCESS"
+    currentBuild.result = "SUCCESS"
 } //stage   
 echo currentBuild.result    
 echo currentBuild.displayName
