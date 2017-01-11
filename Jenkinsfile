@@ -1,9 +1,8 @@
 node {
     stage ('Send mail') {    
-        String currentResult = currentBuild.result
         // Email on any failures, and on first success.
-            echo currentResult
-            if (currentResult == 'SUCCESS') { 
+            echo currentBuild.result
+            if (currentBuild.result == 'SUCCESS') { 
             emailext(body: '${DEFAULT_CONTENT}', 
                      attachLog: true,
                      mimeType: 'text/html',
