@@ -6,12 +6,11 @@ def Developer = emailextrecipients([[$class: 'DevelopersRecipientProvider']])
 def to = emailextrecipients([[$class: 'RequesterRecipientProvider']])
 
 node {
-     stage ('Send mail') {
-        sh 'java -verdion' 
         if (to != null && !to.isEmpty()) {
         // Email on any failures, and on first success.
             if (currentResult != 'SUCCESS' || currentResult != previousResult) { 
             emailext(body: '${DEFAULT_CONTENT}', 
+                     attachLog: true,
                      mimeType: 'text/html',
                      replyTo: '$DEFAULT_REPLYTO', 
                      subject: '${DEFAULT_SUBJECT}',
