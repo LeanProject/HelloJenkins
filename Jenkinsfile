@@ -13,7 +13,6 @@ node {
                                              [$class: 'RequesterRecipientProvider']])) 
                 
             }
-            echo 'Sent email notification'
         //}
         /*mail (to: to,
          subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input",
