@@ -12,6 +12,7 @@ node {
                  mimeType: 'text/html',
                  replyTo: '$DEFAULT_REPLYTO', 
                  subject: '${DEFAULT_SUBJECT}',
+                 from: "jenkins@tv2.dk",
                  to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
                                          [$class: 'RequesterRecipientProvider']])) 
         /*mail (to: to,
