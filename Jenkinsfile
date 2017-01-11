@@ -1,20 +1,12 @@
-node {
-    stage ('Send mail') {
-        sh 'java -verdion'
-        echo "Send mail stage started"
-        step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: emailextrecipients([[$class: 'CulpritsRecipientProvider'], [$class: 'RequesterRecipientProvider']])])
-        /*try {
-            //sh 'exit 1'
-        } finally {
-            echo "Sending mail"
-            mail bcc: '', 
-                body: 'Sending a mail til TLA',
-                cc: '', 
-                from: 'platform@tv2.dk', 
-                replyTo: '', 
-                subject: 'Sending mail', 
-                to: 'tla@tv2.dk'
-        }*/
+def to = emailextrecipients([[$class: 'CulpritsRecipientProvider'],
+                             [$class: 'DevelopersRecipientProvider'],
+                             [$class: 'RequesterRecipientProvider']])
 
-    }        
-}
+node {
+     input 'Ready to send mail?';
+     stage ('Send mail') {
+        mail (to: to,
+         subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input",
+         body: "Please go to ${env.BUILD_URL}.");
+      } //stage   
+} //node
