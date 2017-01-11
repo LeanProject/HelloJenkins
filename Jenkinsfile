@@ -1,12 +1,13 @@
-def to = emailextrecipients([[$class: 'CulpritsRecipientProvider'],
-                             [$class: 'DevelopersRecipientProvider'],
-                             [$class: 'RequesterRecipientProvider']])
+def Culprit   = emailextrecipients([$class: 'CulpritsRecipientProvider'])
+def Developer = emailextrecipients([$class: 'DevelopersRecipientProvider'])
+def Requester = emailextrecipients([$class: 'RequesterRecipientProvider'])
 
 node {
-     echo to
-     input 'Ready to send mail?';
+     echo Culprit
+     echo Developer
+     echo Requester
      stage ('Send mail') {
-        mail (to: to,
+        mail (to: "tla@sd.dk",
          subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input",
          body: "Please go to ${env.BUILD_URL}.");
       } //stage   
