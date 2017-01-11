@@ -12,7 +12,7 @@ node {
                      to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
                                              [$class: 'RequesterRecipientProvider']])) 
                 
-            }
+            //}
         //}
         /*mail (to: to,
          subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input",
