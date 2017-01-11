@@ -3,7 +3,7 @@ node {
         String currentResult = currentBuild.result
         // Email on any failures, and on first success.
             echo currentResult
-            if (currentResult = 'SUCCESS') { 
+            if (currentResult == 'SUCCESS') { 
             emailext(body: '${DEFAULT_CONTENT}', 
                      attachLog: true,
                      mimeType: 'text/html',
