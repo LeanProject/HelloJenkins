@@ -14,7 +14,6 @@ stage ('Send mail') {
              // Settings should not be changed in this call. Change settings in email in Jenkins>Manage Jenkins>Configuration
              emailext(subject: '${DEFAULT_SUBJECT}',
                      to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
-                                             [$class: 'DeveloperRecipientProvider'],
                                              [$class: 'RequesterRecipientProvider']]),
                      replyTo: '$DEFAULT_REPLYTO',
                      attachLog: true,
