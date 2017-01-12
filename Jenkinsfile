@@ -15,7 +15,7 @@ stage ('Send mail') {
              emailext(subject: '${DEFAULT_SUBJECT}',
                      //to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
                      //                         [$class: 'RequesterRecipientProvider']]),
-                     to: '$DEFAULT_RECIPIENTS',
+                     to: '${DEFAULT_RECIPIENTS}',
                      replyTo: '$DEFAULT_REPLYTO',
                      attachLog: true,
                      //compressLog: true,
