@@ -11,14 +11,18 @@ stage ('Send mail') {
         } finally { 
          echo currentBuild.result    
          if (currentBuild.result == 'SUCCESS' || currentBuild.getPreviousBuild().result != currentBuild.result) {
-            emailext(body: '${DEFAULT_CONTENT}', 
+             // Settings should not be changed in this call. Change settings in email in Jenkins>Manage Jenkins>Configuration
+             emailext(subject: '${DEFAULT_SUBJECT}',
+                     //to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
+                     //                         [$class: 'RequesterRecipientProvider']]),
+                     to: '$DEFAULT_RECIPIENTS',
+                     replyTo: '$DEFAULT_REPLYTO',
                      attachLog: true,
                      //compressLog: true,
                      mimeType: 'text/html',
-                     replyTo: '$DEFAULT_REPLYTO', 
-                     subject: '${DEFAULT_SUBJECT}',
-                     to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
-                                             [$class: 'RequesterRecipientProvider']])) 
+                     body: '${DEFAULT_CONTENT}') 
+                     
+                      
         }
         }
 }
