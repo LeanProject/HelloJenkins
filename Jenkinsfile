@@ -17,7 +17,6 @@ stage ('Send mail') {
                                              [$class: 'RequesterRecipientProvider']]),
                      replyTo: '$DEFAULT_REPLYTO',
                      attachLog: true,
-                     //compressLog: true,
                      mimeType: 'text/html',
                      body: '${DEFAULT_CONTENT}')                
         }
