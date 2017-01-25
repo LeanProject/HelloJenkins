@@ -1,6 +1,6 @@
 node {
 stage ('Send mail') { 
-    echo "send mail"
+    echo "send new mail"
     currentBuild.result = "SUCCESS"
 } //stage   
     
