@@ -7,7 +7,7 @@ stage ('Send mail') {
 // Email on any failures, and on first success.
         try {
             currentBuild.result = "SUCCESS"
-            error "OK" 
+            //error "OK" 
         } finally { 
          echo currentBuild.result    
          if (currentBuild.result != 'SUCCESS' || currentBuild.getPreviousBuild().result != currentBuild.result) {
