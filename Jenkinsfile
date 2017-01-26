@@ -3,8 +3,9 @@ node {
 
 stage('SonarQube analysis') {
     // requires SonarQube Scanner 2.8+
+    echo scannerHome  
     def scannerHome = tool 'SonarQube Scanner 2.8';
-    echo scannerHome
+      
     withSonarQubeEnv('SonarQube') {
         sh "${scannerHome}/bin/sonar-scanner"
     }
