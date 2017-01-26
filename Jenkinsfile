@@ -1,4 +1,16 @@
 node {
+
+
+stage('SonarQube analysis') {
+    // requires SonarQube Scanner 2.8+
+    def scannerHome = tool 'SonarQube Scanner 2.8';
+    echo scannerHome
+    withSonarQubeEnv('SonarQube') {
+        sh "${scannerHome}/bin/sonar-scanner"
+    }
+}
+
+
 stage ('Send mail') { 
     echo "send new mail"
     currentBuild.result = "SUCCESS"
@@ -23,13 +35,6 @@ stage ('Send mail') {
         }
 }
 
-node {
 
-    stage('SonarQube analysis') {
-        // requires SonarQube Scanner 2.8+
-        def scannerHome = tool 'SonarQube Scanner 2.8';
-        withSonarQubeEnv('SonarQube') {
-          sh "${scannerHome}/bin/sonar-scanner"
-        }
-    }
-}
+
+    
