@@ -15,7 +15,7 @@ stage ('HTML publish') {
     publishHTML([allowMissing: false, 
                  alwaysLinkToLastBuild: false, 
                  keepAll: false, 
-                 reportDir: '', 
+                 reportDir: '/users/tla/Downloads', 
                  reportFiles: 'index.html', 
                  reportName: 'HTML Report'])
 }
