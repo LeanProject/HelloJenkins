@@ -4,11 +4,19 @@ node {
 stage('SonarQube analysis') {
     // requires SonarQube Scanner 2.8+
     
-    def scannerHome = tool 'SonarQube Scanner 2.8';
+    //def scannerHome = tool 'SonarQube Scanner 2.8';
       
-    withSonarQubeEnv('SonarQube') {
-        sh "${scannerHome}/bin/sonar-scanner"
+    //withSonarQubeEnv('SonarQube') {
+        sh "${scannerHome}/bin/sonar-   scanner"
     }
+}
+stage ('HTML publish') {
+    publishHTML([allowMissing: false, 
+                 alwaysLinkToLastBuild: false, 
+                 keepAll: false, 
+                 reportDir: '', 
+                 reportFiles: 'index.html', 
+                 reportName: 'HTML Report'])
 }
 
 
