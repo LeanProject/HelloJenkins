@@ -7,9 +7,10 @@ stage('SonarQube analysis') {
     //def scannerHome = tool 'SonarQube Scanner 2.8';
       
     //withSonarQubeEnv('SonarQube') {
-        sh "${scannerHome}/bin/sonar-   scanner"
-    }
+  //      sh "${scannerHome}/bin/sonar-   scanner"
+//    }
 }
+
 stage ('HTML publish') {
     publishHTML([allowMissing: false, 
                  alwaysLinkToLastBuild: false, 
