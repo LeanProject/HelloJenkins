@@ -17,7 +17,7 @@ stage ('HTML publish') {
   publishHTML(target: [
         allowMissing: true, 
         alwaysLinkToLastBuild: true, 
-        keepAll: false, 
+        keepAll: true, 
         reportDir: 'reports', 
         reportFiles: 'index.html', 
         reportName: 'HTML Report'
