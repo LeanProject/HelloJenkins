@@ -12,12 +12,14 @@ stage('SonarQube analysis') {
 }
 
 stage ('HTML publish') {
-  publishHTML([allowMissing: false, 
-               alwaysLinkToLastBuild: false, 
-               keepAll: false, 
-               reportDir: 'reports', 
-               reportFiles: 'index.html', 
-               reportName: 'HTML Report'])
+  publishHTML(target: [
+        allowMissing: false, 
+        alwaysLinkToLastBuild: false, 
+        keepAll: false, 
+        reportDir: 'reports', 
+        reportFiles: 'index.html', 
+        reportName: 'HTML Report'
+        ])
 }
 
 
