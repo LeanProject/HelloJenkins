@@ -11,6 +11,8 @@ stage('SonarQube analysis') {
 //    }
 }
 
+checkout scm
+
 stage ('HTML publish') {
   publishHTML(target: [
         allowMissing: false, 
