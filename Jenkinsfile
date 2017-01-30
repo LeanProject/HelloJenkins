@@ -1,52 +1,28 @@
+stage 'Build'
+
 node {
+  // Checkout
+  git 'https://github.com/reiseburo/hermann.git'
 
+  // install required bundles
+  sh 'bundle install'
 
-stage('SonarQube analysis') {
-    // requires SonarQube Scanner 2.8+
-    
-    //def scannerHome = tool 'SonarQube Scanner 2.8';
-      
-    //withSonarQubeEnv('SonarQube') {
-  //      sh "${scannerHome}/bin/sonar-   scanner"
-//    }
-}
+  // build and run tests with coverage
+  sh 'bundle exec rake build spec'
 
-stage ('HTML publish') {
-  publishHTML(target: [
-        allowMissing: false, 
-        alwaysLinkToLastBuild: false, 
-        keepAll: false, 
-        reportDir: 'reports', 
-        reportFiles: 'index.html', 
-        reportName: 'HTML Report'
-        ])
-}
+  // Archive the built artifacts
+  archive (includes: 'pkg/*.gem')
 
+  // publish html
+  // snippet generator doesn't include "target:"
+  // https://issues.jenkins-ci.org/browse/JENKINS-29711.
+  publishHTML (target: [
+      allowMissing: false,
+      alwaysLinkToLastBuild: false,
+      keepAll: true,
+      reportDir: 'coverage',
+      reportFiles: 'index.html',
+      reportName: "RCov Report"
+    ])
 
-stage ('Send mail') { 
-    echo "send new mail"
-    currentBuild.result = "SUCCESS"
-} //stage   
-    
-// Email on any failures, and on first success.
-        try {
-            currentBuild.result = "SUCCESS"
-            //error "OK" 
-        } finally { 
-         echo currentBuild.result    
-         if (currentBuild.result != 'SUCCESS' || currentBuild.getPreviousBuild().result != currentBuild.result) {
-             // Settings should not be changed in this call. Change settings in email in Jenkins>Manage Jenkins>Configuration
-             emailext(subject: '${DEFAULT_SUBJECT}',
-                     to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
-                                             [$class: 'RequesterRecipientProvider']]),
-                     replyTo: '$DEFAULT_REPLYTO',
-                     attachLog: true,
-                     mimeType: 'text/html',
-                     body: '${DEFAULT_CONTENT}')                
-        }
-        }
-}
-
-
-
-    
+}}
