@@ -15,8 +15,8 @@ checkout scm
 
 stage ('HTML publish') {
   publishHTML(target: [
-        allowMissing: false, 
-        alwaysLinkToLastBuild: false, 
+        allowMissing: true, 
+        alwaysLinkToLastBuild: true, 
         keepAll: false, 
         reportDir: 'reports', 
         reportFiles: 'index.html', 
