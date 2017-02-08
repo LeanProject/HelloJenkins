@@ -13,7 +13,7 @@ stage('SonarQube analysis') {
 
 checkout scm
 
-stage ('HTML publish') {
+stage ('HTML publis') {
   publishHTML(target: [
         allowMissing: true, 
         alwaysLinkToLastBuild: true, 
