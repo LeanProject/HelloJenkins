@@ -21,19 +21,17 @@ node {
     }
     
     //Deploy to DEV
-    stage ('DEV deploy')
-    {
+    stage ('DEV deploy'){
     
     }
     
     //Perform load test
-    stage ('Load test')
-    {
+    stage ('Load test'){
     
     }
     
     //Perform acceptance test
-    {
+    stage ('Acceptance test') {
     
     }
     
