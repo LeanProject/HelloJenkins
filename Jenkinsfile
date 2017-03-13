@@ -20,6 +20,11 @@ node {
 
     }
     
+    //Basic acceptance test
+    stage ('Basic acceptance test'){
+    
+    }
+    
     //Deploy to DEV
     stage ('DEV deploy'){
     
