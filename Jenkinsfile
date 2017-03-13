@@ -2,45 +2,56 @@
 // pipelines. 
 node {
 
+    // Prerequisits
+    checkout scm
+
     // Automatic build stage 
     stage('Build automation') {
 
     }
 
-    checkout scm
-
-    stage ('HTML publis') {
-      publishHTML(target: [
-            allowMissing: true, 
-            alwaysLinkToLastBuild: true, 
-            keepAll: true, 
-            reportDir: 'reports', 
-            reportFiles: 'index.html', 
-            reportName: 'HTML Report'
-            ])
+    // Run unittest 
+    stage ('Unit test') {
+     
     }
 
+    // Static analysis
+    stage ('Static analysis') {
 
-    stage ('Send mail') { 
-        echo "send new mail"
-        currentBuild.result = "SUCCESS"
-    } //stage   
-
+    }
+    
+    //Deploy to DEV
+    stage ('DEV deploy')
+    {
+    
+    }
+    
+    //Perform load test
+    stage ('Load test')
+    {
+    
+    }
+    
+    //Perform acceptance test
+    {
+    
+    }
+    
+    // Send mail to inform about status on this build
+    currentBuild.result = "SUCCESS"
+    
     // Email on any failures, and on first success.
-            try {
-                currentBuild.result = "SUCCESS"
-                //error "OK" 
-            } finally { 
-             echo currentBuild.result    
-             if (currentBuild.result != 'SUCCESS' || currentBuild.getPreviousBuild().result != currentBuild.result) {
-                 // Settings should not be changed in this call. Change settings in email in Jenkins>Manage Jenkins>Configuration
-                 emailext(subject: '${DEFAULT_SUBJECT}',
-                         to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
-                                                 [$class: 'RequesterRecipientProvider']]),
-                         replyTo: '$DEFAULT_REPLYTO',
-                         attachLog: true,
-                         mimeType: 'text/html',
-                         body: '${DEFAULT_CONTENT}')                
+    try {
+        currentBuild.result = "SUCCESS" 
+    } finally {    
+         if (currentBuild.result != 'SUCCESS' || currentBuild.getPreviousBuild().result != currentBuild.result) {
+             emailext(subject: '${DEFAULT_SUBJECT}',
+                     to: emailextrecipients([[$class: 'CulpritsRecipientProvider'],
+                                             [$class: 'RequesterRecipientProvider']]),
+                     replyTo: '$DEFAULT_REPLYTO',
+                     attachLog: true,
+                     mimeType: 'text/html',
+                     body: '${DEFAULT_CONTENT}')                
             }
     }
 
