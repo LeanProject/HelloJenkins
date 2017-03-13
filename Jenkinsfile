@@ -42,8 +42,8 @@ stage ('Send mail') {
                      mimeType: 'text/html',
                      body: '${DEFAULT_CONTENT}')                
         }
-        }
 }
+
 
 
 
