@@ -1,14 +1,10 @@
-node {
+// Jenkins file template. Purpose of this file is building a template for all Jenkins
+// pipelines. 
 
 
-stage('SonarQube analysis') {
-    // requires SonarQube Scanner 2.8+
+// Automatic build stage 
+stage('Build automation') {
     
-    //def scannerHome = tool 'SonarQube Scanner 2.8';
-      
-    //withSonarQubeEnv('SonarQube') {
-  //      sh "${scannerHome}/bin/sonar-   scanner"
-//    }
 }
 
 checkout scm
