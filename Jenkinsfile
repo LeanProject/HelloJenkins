@@ -35,6 +35,11 @@ node {
     
     }
     
+    //Deploy to STAGE
+    stage ('STAGE Deploy'){
+    
+    }
+    
     // Send mail to inform about status on this build
     currentBuild.result = "SUCCESS"
     
