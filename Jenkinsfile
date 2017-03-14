@@ -20,13 +20,13 @@ node {
 
     }
     
-    //Basic acceptance test
-    stage ('Basic acceptance test'){
+    //Deploy to DEV
+    stage ('DEV deploy'){
     
     }
     
-    //Deploy to DEV
-    stage ('DEV deploy'){
+    //Basic DEV acceptance test
+    stage ('Basic DEV acceptance test'){
     
     }
     
@@ -41,7 +41,7 @@ node {
     }
     
     //Deploy to STAGE
-    stage ('STAGE Deploy'){
+    stage ('STAGE deploy'){
     
     }
     
