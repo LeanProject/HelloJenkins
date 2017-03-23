@@ -3,48 +3,48 @@
 node {
 
     // Source code checkout
-    stage ('Source code checkout \u2714') {
+    stage ('Source code checkout') {
       checkout scm
     }
     
     // Static analysis
-    stage ('Static analysis') {
+    stage ('Static analysis \u274c') {
 
     }
 
     // Automatic build stage 
-    stage('Build automation') {
+    stage('Build automation \u274c') {
 
     }
 
     
     // Run component test 
-    stage ('Component test') {
+    stage ('Component test \u274c') {
      
     }
     
     // Analyse code quality 
-    stage ('Analyse code quality') {
+    stage ('Analyse code quality \u274c') {
      
     }
     
     //Deploy to DEV
-    stage ('DEV deploy'){
+    stage ('DEV deploy \u274c'){
     
     }
     
     //Perform acceptance test
-    stage ('Acceptance test') {
+    stage ('Acceptance test \u274c') {
     
     }
     
     //Perform load test
-    stage ('Load test'){
+    stage ('Load test \u274c'){
     
     }
     
     //Deploy to STAGE
-    stage ('STAGE deploy'){
+    stage ('STAGE deploy \u274c'){
     
     }
     
