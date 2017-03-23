@@ -2,17 +2,18 @@
 // pipelines. 
 node {
 
-    // Prerequisits
-    stage ('Source check out \u2600')
-    checkout scm
-
+    // Source code checkout
+    stage ('Source checkout \u2618') {
+      checkout scm
+    }
+    
     // Static analysis
     stage ('Static analysis') {
 
     }
 
     // Automatic build stage 
-    stage('Build automation \u2600') {
+    stage('Build automation \u2618') {
 
     }
 
