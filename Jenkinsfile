@@ -3,7 +3,7 @@
 node {
 
     // Source code checkout
-    stage ('Source code checkout \u2601') {
+    stage ('Source code checkout \u2714') {
       checkout scm
     }
     
