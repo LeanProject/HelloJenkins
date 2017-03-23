@@ -3,45 +3,54 @@
 node {
 
     // Prerequisits
+    stage ('Source check out \u2600')
     checkout scm
 
+    // Static analysis
+    stage ('Static analysis') {
+
+    }
+
     // Automatic build stage 
-    stage('\u2600 Build automation') {
+    stage('Build automation \u2600') {
 
     }
 
     // Run unittest 
-    stage ('\u2601 Unit test') {
+    stage ('Unit test \u2601 ') {
      
     }
 
-    // Static analysis
-    stage ('\u274C Static analysis') {
-
+    node {
+    // This is the current syntax for invoking a build wrapper, naming the class.
+    wrap([$class: 'AnsiColorBuildWrapper']) {
+        // Just some echoes to show the ANSI color.
+        stage "\u001B[31mI'm Red\u001B[0m Now not"
+        }
     }
     
     //Deploy to DEV
-    stage ('\u274C DEV deploy'){
+    stage ('DEV deploy'){
     
     }
     
     //Basic DEV acceptance test
-    stage ('\u274C Basic DEV acceptance test'){
+    stage ('Basic DEV acceptance test'){
     
     }
     
     //Perform load test
-    stage ('\u274C Load test'){
+    stage ('Load test'){
     
     }
     
     //Perform acceptance test
-    stage ('\u274C Acceptance test') {
+    stage ('Acceptance test') {
     
     }
     
     //Deploy to STAGE
-    stage ('\u274C STAGE deploy'){
+    stage ('STAGE deploy'){
     
     }
     
