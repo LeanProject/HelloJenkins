@@ -6,12 +6,12 @@ node {
     checkout scm
 
     // Automatic build stage 
-    stage('\u2705 Build automation') {
+    stage('\u2600 Build automation') {
 
     }
 
     // Run unittest 
-    stage ('\u274C Unit test') {
+    stage ('\u2601 Unit test') {
      
     }
 
