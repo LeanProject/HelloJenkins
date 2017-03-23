@@ -16,10 +16,6 @@ node {
     stage('Build automation \u274c') {
 
     }
-
-    wrap([$class: 'AnsiColorBuildWrapper']) {
-        stage "\u001B[31mI'm Red\u001B[0m Now not"
-    }
     
     // Run component test 
     stage ('Component test \u274c') {
