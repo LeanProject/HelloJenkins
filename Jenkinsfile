@@ -11,37 +11,37 @@ node {
     }
 
     // Run unittest 
-    stage ('Unit test') {
+    stage ('\u274C Unit test') {
      
     }
 
     // Static analysis
-    stage ('Static analysis') {
+    stage ('\u274C Static analysis') {
 
     }
     
     //Deploy to DEV
-    stage ('DEV deploy'){
+    stage ('\u274C DEV deploy'){
     
     }
     
     //Basic DEV acceptance test
-    stage ('Basic DEV acceptance test'){
+    stage ('\u274C Basic DEV acceptance test'){
     
     }
     
     //Perform load test
-    stage ('Load test'){
+    stage ('\u274C Load test'){
     
     }
     
     //Perform acceptance test
-    stage ('Acceptance test') {
+    stage ('\u274C Acceptance test') {
     
     }
     
     //Deploy to STAGE
-    stage ('STAGE deploy'){
+    stage ('\u274C STAGE deploy'){
     
     }
     
