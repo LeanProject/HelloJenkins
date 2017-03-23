@@ -17,6 +17,9 @@ node {
 
     }
 
+    wrap([$class: 'AnsiColorBuildWrapper']) {
+        stage "\u001B[31m I'm Red \u2717 \u001B[0m Now not"
+    }
     
     // Run component test 
     stage ('Component test \u274c') {
