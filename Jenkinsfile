@@ -6,7 +6,7 @@ node {
     checkout scm
 
     // Automatic build stage 
-    stage('Build automation') {
+    stage('\u2705 Build automation') {
 
     }
 
