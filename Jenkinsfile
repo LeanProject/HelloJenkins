@@ -8,7 +8,7 @@ node {
     }
     
     // Static analysis
-    stage ('Static analysis \u274c') {
+    stage ('Static analysis \u271c') {
 
     }
 
