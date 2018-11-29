@@ -50,6 +50,12 @@ node {
     // Send mail to inform about status on this build
     currentBuild.result = "SUCCESS"
     
+    
+    // Static analysis
+    stage ('Release to production? \u271c') {
+        input('Release to production??')
+    }
+    
     // Email on any failures, and on first success.
     try {
         currentBuild.result = "SUCCESS" 
