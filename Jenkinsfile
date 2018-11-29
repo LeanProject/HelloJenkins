@@ -13,7 +13,7 @@ node {
     }
 
     // Automatic build stage 
-    stage('Build automation \u274c') {
+    stage('Build automation \u272c') {
         echo "Hello world"
     }
     
