@@ -19,7 +19,9 @@ node {
     
     // Run component test 
     stage ('Component test \u274c') {
-     
+        timeout(time:20, unit: 'seconds') {
+
+        }
     }
     
     // Analyse code quality 
