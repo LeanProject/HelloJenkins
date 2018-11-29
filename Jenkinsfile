@@ -14,7 +14,7 @@ node {
 
     // Automatic build stage 
     stage('Build automation \u274c') {
-
+        echo "Hello world"
     }
     
     // Run component test 
