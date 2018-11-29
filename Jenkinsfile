@@ -3,8 +3,8 @@
 node {
 
     // Source code checkout
-    stage ('Source code checkout') {
-      checkout scm
+    stage ('Source code checkout \u273c') {
+      // checkout scm
     }
     
     // Static analysis
