@@ -9,7 +9,7 @@ node {
     
     // Static analysis
     stage ('Static analysis \u271c') {
-        input('OK to continue?')
+        input message: 'OK to continue?', ok: 'Create static analysis?'
     }
 
     // Automatic build stage 
