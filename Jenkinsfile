@@ -4,7 +4,7 @@ node {
 
     // Source code checkout
     stage ('Source code checkout \u273c') {
-        checkout scm
+        checkout scmk
     }
     
     // Static analysis
