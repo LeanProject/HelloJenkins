@@ -52,7 +52,7 @@ node {
     
     
     // Static analysis
-    stage ('Release to production? \u271c') {
+    stage ('Release to production? \1F3AF') {
         input('Release to production??')
     }
     
