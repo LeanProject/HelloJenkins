@@ -3,7 +3,7 @@
 node {
 
     // Source code checkout
-    stage ('Source code checkout \u273c') {
+    stage ('Source code checkout \u2705') {
         checkout scm
     }
     
@@ -52,7 +52,7 @@ node {
     
     
     // Static analysis
-    stage ('Release to production? \u1F3AF') {
+    stage ('Release to production? \u274c') {
         input('Release to production??')
     }
     
